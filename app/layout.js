@@ -1,4 +1,6 @@
 
+import styles from './styles.module.css'
+import '../styles/global.css'
 
 export const metadata = {
   title: 'Create Next App',
@@ -7,11 +9,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>
-        <header>BAŞLIK KISMI</header>
+    <html lang="tr">
+      <body className={styles.container}>
+        <header><h2>Başlık Kısmı</h2></header>
         {children}
-        <footer>ALT KISIM</footer>
+        <footer><h3>Footer Kısmı</h3></footer>
         </body>
     </html>
   )
