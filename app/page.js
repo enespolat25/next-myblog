@@ -1,12 +1,25 @@
-import React from 'react'
-import BlogCard from '../components/BlogCard'
+import React from "react";
+import BlogCard from "../components/BlogCard";
+import styles from "./styles.module.css";
 
-function Home() {
-  return (
-    <div>
-      <BlogCard/>
-    </div>
-  )
+async function getPosts() {
+  const response = await fetch("https://dummyjson.com/post?limit=10");
+
+  return response.json();
 }
 
-export default Home
+async function Home() {
+  const { posts } = await getPosts();
+
+  return (
+    <div>
+      {posts.map((post) => (
+        <div className={styles.blogContainer}>
+          <BlogCard key={post.id} {...post} />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default Home;
