@@ -1,8 +1,11 @@
 import React from 'react'
+import BlogCard from '../components/BlogCard'
 
 function Home() {
   return (
-    <div><main>Site Gövdesi</main></div>
+    <div>
+      <BlogCard/>
+    </div>
   )
 }
 
