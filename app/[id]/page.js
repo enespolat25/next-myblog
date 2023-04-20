@@ -2,14 +2,23 @@ import React from "react";
 import Image from "next/image";
 import styles from "./styles.module.css";
 
-async function getPost(id) {
-  const response = await fetch(`https://dummyjson.com/posts/${id}`);
+import { notFound } from "next/navigation";
 
-  return response.json();
+async function getPost(id) {
+  try {
+    const response = await fetch(`https://dummyjson.com/posts/${id}`);
+    return response.json();
+  } catch (error) {
+    throw new Error(error);
+  }
 }
 
 async function Page({ params }) {
   const { id, title, body } = await getPost(params.id);
+
+  if (!title) {
+    return notFound();
+  }
 
   return (
     <div className={styles.blogContainer}>
