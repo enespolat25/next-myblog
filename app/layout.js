@@ -2,6 +2,8 @@
 import styles from './styles.module.css'
 import '../styles/global.css'
 import { Inter, Roboto_Mono } from 'next/font/google';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export const metadata = {
   title: 'Create Next App',
@@ -22,11 +24,11 @@ export default function RootLayout({ children }) {
 
  
   return (
-    <html lang="tr" className={roboto_mono.className}>
+    <html lang="tr" className={inter.className}>
       <body className={styles.container}>
-        <header><h2>Başlık Kısmı</h2></header>
+        <Header/>
         {children}
-        <footer><h3>Footer Kısmı</h3></footer>
+        <Footer/>
         </body>
     </html>
   )
